@@ -17,11 +17,14 @@ class Pessoa:
     def nome_e_atributo_de_classe(cls):
         return f'{cls} - olhos {cls.olhos}'
 
+class Homem(Pessoa):
+    pass
+
 
 if __name__ == '__main__':
-    paulo = Pessoa(nome='Tarciso')
+    paulo = Homem(nome='Tarciso')
     renzo = Pessoa(nome='Renzo')
-    luciano = Pessoa(paulo, renzo, nome='Luciano')
+    luciano = Homem(paulo, renzo, nome='Luciano')
 
     print(Pessoa.cumprimentar(luciano))
     print(id(luciano))
@@ -43,3 +46,9 @@ if __name__ == '__main__':
     print(id(Pessoa.olhos), id(luciano.olhos), id(renzo.olhos))
     print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
     print(Pessoa.nome_e_atributo_de_classe(), luciano.nome_e_atributo_de_classe())
+
+    pesssoa = Pessoa('Anonimo')
+    print(isinstance(pesssoa, Pessoa))
+    print(isinstance(pesssoa, Homem))
+    print(isinstance(paulo, Homem))
+    print(isinstance(paulo, Pessoa))
